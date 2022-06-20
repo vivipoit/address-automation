@@ -2,26 +2,25 @@
 
 <%= form_with data: { controller: 'address-form' } do |form| %>
   <div>
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
-  <div>
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-  <div>
-    <%= form.label :postal_code %>
-    <%= form.text_field :postal_code, data: { action: 'keydown->address-form#updateCityOptions', 'address-form-target': 'postalCode' } %>
-  </div>
-  <div>
-    <%= form.label :city %>
-    <%= form.select :city, [], {}, data: { 'address-form-target': 'city' } %>
-  </div>
-  <div>
     <%= form.label :country %>
     <%= form.select :country, ['Luxembourg'] %>
   </div>
-
+  <div>
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code, data: { 'address-form-target': 'postalCode', action: 'keydown->address-form#updateCityOptions' } %>
+  </div>
+  <div>
+    <%= form.label :city %>
+    <%= form.select :city, [], {}, data: { 'address-form-target': 'city', action: 'change->address-form#updateStreetOptions' } %>
+  </div>
+  <div>
+    <%= form.label :street %>
+    <%= form.select :street, [], {}, data: { 'address-form-target': 'street' } %>
+  </div>
+  <div>
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
