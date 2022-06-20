@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_181532) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_185853) do
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "postal_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "street_numbers", force: :cascade do |t|
+    t.integer "street_id", null: false
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["street_id"], name: "index_street_numbers_on_street_id"
   end
 
   create_table "streets", force: :cascade do |t|
@@ -26,5 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_181532) do
     t.index ["city_id"], name: "index_streets_on_city_id"
   end
 
+  add_foreign_key "street_numbers", "streets"
   add_foreign_key "streets", "cities"
 end
