@@ -15,11 +15,11 @@
   </div>
   <div>
     <%= form.label :street %>
-    <%= form.select :street, [], {}, data: { 'address-form-target': 'street' } %>
+    <%= form.select :street, [], {}, data: { 'address-form-target': 'street', action: 'change->address-form#updateNumberOptions' } %>
   </div>
   <div>
     <%= form.label :number %>
-    <%= form.text_field :number %>
+    <%= form.select :number, [], {}, data: { 'address-form-target': 'number' } %>
   </div>
   <div>
     <%= form.submit %>
