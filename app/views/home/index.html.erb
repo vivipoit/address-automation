@@ -1,6 +1,6 @@
 <h3>Where do you live now?</h3>
 
-<%= form_with do |form| %>
+<%= form_with data: { controller: 'address-form' } do |form| %>
   <div>
     <%= form.label :number %>
     <%= form.text_field :number %>
@@ -15,7 +15,7 @@
   </div>
   <div>
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.select :city, [], {}, data: { 'address-form-target': 'city' } %>
   </div>
   <div>
     <%= form.label :country %>
