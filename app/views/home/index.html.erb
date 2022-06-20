@@ -1,0 +1,28 @@
+<h3>Where do you live now?</h3>
+
+<%= form_with do |form| %>
+  <div>
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+  <div>
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+  <div>
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code %>
+  </div>
+  <div>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+  <div>
+    <%= form.label :country %>
+    <%= form.select :country, ['Luxembourg'] %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
