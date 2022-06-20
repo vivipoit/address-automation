@@ -11,7 +11,7 @@
   </div>
   <div>
     <%= form.label :postal_code %>
-    <%= form.text_field :postal_code %>
+    <%= form.text_field :postal_code, data: { action: 'keydown->address-form#updateCityOptions', 'address-form-target': 'postalCode' } %>
   </div>
   <div>
     <%= form.label :city %>
